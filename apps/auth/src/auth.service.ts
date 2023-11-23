@@ -12,7 +12,7 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  login(user: UserDocument, response: Response) {
+  async login(user: UserDocument, response: Response) {
     const tokenPayload: TokenPayload = {
       userId: user._id.toHexString(),
     };
@@ -28,5 +28,7 @@ export class AuthService {
       httpOnly: true,
       expires,
     });
+
+    return token;
   }
 }

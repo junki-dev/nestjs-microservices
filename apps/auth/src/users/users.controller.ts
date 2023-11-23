@@ -11,6 +11,7 @@ export class UsersController {
 
   @Post()
   async createUser(@Body() createUserDto: CreateUserDto) {
+    console.log(`create new user: ${JSON.stringify(createUserDto)}`);
     return this.usersService.create(createUserDto);
   }
 

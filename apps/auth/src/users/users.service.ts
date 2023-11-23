@@ -36,8 +36,9 @@ export class UsersService {
   private async validateCreateUserDto(createUserDto: CreateUserDto) {
     try {
       await this.usersRepository.findOne({ email: createUserDto.email });
-    } catch (error) {
-      throw new UnprocessableEntityException(`Credentials are not valid`);
+    } catch (err) {
+      return;
     }
+    throw new UnprocessableEntityException('Email already exists.');
   }
 }
