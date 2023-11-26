@@ -27,7 +27,7 @@ RUN npm install -g pnpm
 
 RUN pnpm install --prod
 
-COPY --from=developemnt /usr/src/app/dist ./dist
+COPY --from=development /usr/src/app/dist ./dist
 
 CMD ["node", "dist/apps/auth/main"]
 
