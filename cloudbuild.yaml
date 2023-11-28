@@ -1,0 +1,64 @@
+steps:
+  # reservations
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+            'build',
+            '-t',
+            'asia-northeast3-docker.pkg.dev/cedar-oath-406321/reservations',
+            '-f',
+            'apps/reservations/Dockerfile',
+            '.',
+    ]
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'push',
+      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/reservations',
+    ]
+
+  # auth
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'build',
+      '-t',
+      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/auth',
+      '-f',
+      'apps/auth/Dockerfile',
+      '.',
+    ]
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'push',
+      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/auth'
+    ]
+
+  # payments
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'build',
+      '-t',
+      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/payments',
+      '-f',
+      'apps/payments/Dockerfile',
+      '.',
+    ]
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'push',
+      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/payments'
+    ]
+
+  # notifications
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'build',
+      '-t',
+      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/notifications',
+      '-f',
+      'apps/notifications/Dockerfile',
+      '.',
+    ]
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'push',
+      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/notifications'
+    ]
