@@ -4,7 +4,7 @@ steps:
     args: [
             'build',
             '-t',
-            'asia-northeast3-docker.pkg.dev/cedar-oath-406321/reservations',
+            'asia-northeast3-docker.pkg.dev/cedar-oath-406321/reservations/production',
             '-f',
             'apps/reservations/Dockerfile',
             '.',
@@ -12,7 +12,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'push',
-      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/reservations',
+      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/reservations/production',
     ]
 
   # auth
@@ -20,7 +20,7 @@ steps:
     args: [
       'build',
       '-t',
-      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/auth',
+      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/auth/production',
       '-f',
       'apps/auth/Dockerfile',
       '.',
@@ -28,7 +28,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'push',
-      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/auth'
+      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/auth/production'
     ]
 
   # payments
@@ -36,7 +36,7 @@ steps:
     args: [
       'build',
       '-t',
-      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/payments',
+      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/payments/production',
       '-f',
       'apps/payments/Dockerfile',
       '.',
@@ -44,7 +44,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'push',
-      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/payments'
+      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/payments/production'
     ]
 
   # notifications
@@ -52,7 +52,7 @@ steps:
     args: [
       'build',
       '-t',
-      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/notifications',
+      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/notifications/production',
       '-f',
       'apps/notifications/Dockerfile',
       '.',
@@ -60,5 +60,5 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'push',
-      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/notifications'
+      'asia-northeast3-docker.pkg.dev/cedar-oath-406321/notifications/production'
     ]
