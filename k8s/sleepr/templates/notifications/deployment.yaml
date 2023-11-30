@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: notifications-sleepr
+  name: notifications-sleepr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notifications-sleepr
+  template:
+    metadata:
+      labels:
+        app: notifications-sleepr
+    spec:
+      containers:
+      - image: asia-northeast3-docker.pkg.dev/cedar-oath-406321/notifications/production
+        name: notifications-sleepr
+        env:
+          - name: PORT
+            value: '3000'
+          - name: GOOGLE_OAUTH_CLIENT_ID
+            value: 197285555079-r2b6qlqehbff7uanlg1hojegvldotbj0.apps.googleusercontent.com
+          - name: SMTP_USER
+            value: 'kjgcde.test@gmail.com'
+          - name: GOOGLE_OAUTH_CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: google
+                key: clientSecret
+          - name: GOOGLE_OAUTH_REFRESH_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: google
+                key: refreshToken
+        ports:
+          - containerPort: 3000
