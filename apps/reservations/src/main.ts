@@ -16,5 +16,7 @@ async function bootstrap() {
   app.use(cookieParser());
   const configService = app.get(ConfigService);
   await app.listen(configService.get<number>('PORT'));
+
+  console.log(`Application is running on: ${await app.getUrl()}`);
 }
 bootstrap();
