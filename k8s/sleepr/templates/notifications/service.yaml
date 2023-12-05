@@ -6,10 +6,10 @@ metadata:
   name: notifications-sleepr
 spec:
   ports:
-  - name: "tcp"
-    port: 3000
-    protocol: TCP
-    targetPort: 3000
+    - name: 'tcp'
+      port: 3000
+      protocol: TCP
+      targetPort: 3000
   selector:
     app: notifications-sleepr
   type: ClusterIP

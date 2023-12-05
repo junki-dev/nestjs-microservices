@@ -6,14 +6,14 @@ metadata:
   name: auth
 spec:
   ports:
-  - name: "tcp"
-    port: 3002
-    protocol: TCP
-    targetPort: 3002
-  - name: "http"
-    port: 3003
-    protocol: TCP
-    targetPort: 3003
+    - name: "tcp"
+      port: 3002
+      protocol: TCP
+      targetPort: 3002
+    - name: "http"
+      port: 3003
+      protocol: TCP
+      targetPort: 3003
   selector:
     app: auth
   type: ClusterIP
