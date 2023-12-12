@@ -1,9 +1,8 @@
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { CurrentUser, UserDocument } from '@app/common';
+import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
-import { CurrentUser } from '@app/common';
-import { UserDocument } from '@app/common/models/users.schema';
-import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 
 @Controller('users')
 export class UsersController {
@@ -11,7 +10,6 @@ export class UsersController {
 
   @Post()
   async createUser(@Body() createUserDto: CreateUserDto) {
-    console.log(`create new user: ${JSON.stringify(createUserDto)}`);
     return this.usersService.create(createUserDto);
   }
 

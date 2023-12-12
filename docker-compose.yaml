@@ -54,3 +54,8 @@ services:
       - 27017:27017
     volumes:
       - ./mongodb:/data/db
+
+  rabbitmq:
+    image: rabbitmq
+    ports:
+      - 5672:5672
